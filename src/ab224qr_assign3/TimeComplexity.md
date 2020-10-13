@@ -138,7 +138,7 @@ computeClosure loops through the nodes in the graph, giving us O(N), and for eac
 calls on dfs, which we already know has a time complexity of O(N + S). The rest are constants and therefore
 eliminated.
 
-The time complexity for computing closures: O(N) * O(N + S), which is written as O(N² + NS).
+The time complexity for computing closures: O(N(N + S)), which is written as O(N² + NS).
 
 ---
 
