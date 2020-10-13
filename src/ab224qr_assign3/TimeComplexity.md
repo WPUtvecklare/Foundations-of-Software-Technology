@@ -189,8 +189,7 @@ from dfs ( O(N) ), after that, it loops through the components ( O(C) ) and call
 ( O(C) ), which iterates through the collection and adds the component to the collection 
 if they have no elements in common ( O(C) ).
 
-The time complexity is written as O(N^2 + (N+S) + (C^3)). Although it does not take the nesting into account.
-Each time we call the method, the nested C-loop will be iterated N amount of times. Therefore one could argue
-for a solution of; 
+The time complexity could be written as O(N^2 + (N+S) + (C^3)). Although,
+since the nested C-loop will be iterated N amount of times, one could argue for a solution of:
 
-N( (N + S) + N + C(C(C)) ) --> O(N² + NS + N² + NC^3). 
+N( (N + S) + N + C(C(C)) ) --> O(N² + NS + N² + NC^3).
