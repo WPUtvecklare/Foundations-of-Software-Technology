@@ -139,7 +139,6 @@ calls on dfs, which we already know has a time complexity of O(N + S). The rest 
 eliminated.
 
 The time complexity for computing closures: O(N) * O(N + S), which is written as O(N² + NS).
-It could also be seen as O(NS) if S is greater than N.
 
 ---
 
