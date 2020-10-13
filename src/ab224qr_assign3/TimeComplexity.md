@@ -197,6 +197,7 @@ O( (N + S) + N + C(C(C)) ) --> O(N² + NS + N² + NC^3).
 ---
 
 ## Resources
-https://gist.github.com/psayre23/c30a821239f4818b0709
-http://bigocheatsheet.com/
-https://mymoodle.lnu.se/pluginfile.php/6314765/mod_resource/content/1/2DV600_Lecture7.pdf
+
+https://gist.github.com/psayre23/c30a821239f4818b0709  
+http://bigocheatsheet.com/  
+https://mymoodle.lnu.se/pluginfile.php/6314765/mod_resource/content/1/2DV600_Lecture7.pdf  
