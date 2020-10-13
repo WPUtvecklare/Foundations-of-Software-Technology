@@ -17,7 +17,7 @@ public List<Node<E>> dfs(DirectedGraph<E> graph) {
             doDFS(firstNode, visited); // O(1)
         } else {
             graph.heads().forEachRemaining(node -> { // O(N)
-                doDFS(node, visited)); // O(1)
+                doDFS(node, visited)); // O(S)
             }
         }
 
@@ -35,7 +35,7 @@ private void doDFS(Node<E> node, Set<Node<E>> visited) {
                 Node<E> successor = successors.next(); // O(1)
 
                 if (!visited.contains(successor)) { // O(1)
-                    doDFS(successor, visited); // O(N)
+                    doDFS(successor, visited); // O(1)
                 }
             }
         }
@@ -46,9 +46,9 @@ private void doDFS(Node<E> node, Set<Node<E>> visited) {
 
 The algorithm loops through all heads within the graph as a worst-case scenario ( O(N) ), otherwise it takes
 the first node, and calls on doDFS ( O(1) ). Inside doDFS it loops through the current node's successors ( O(S) )
-and calls itself recursively for each successor ( O(N) ). 
+and calls itself recursively for each successor. 
 Since both methods contains constants and infinite, the constants can be removed, which means 
-that we have O(N) (or O(1)) in dfs and O(S) & O(N) in doDFS.
+that we have O(N) in dfs and O(S) in doDFS.
 
 The time complexity is written as O(N + S) where N is the amount of nodes and S is the amount of successors.
 
@@ -73,7 +73,7 @@ public List<Node<E>> bfs(DirectedGraph<E> graph) {
             graph.heads().forEachRemaining(toVisit::add); // O(N)
         }
 
-        return doBFS(toVisit); // O(1)
+        return doBFS(toVisit);
 }
 
 private List<Node<E>> doBFS(Queue<Node<E>> toVisit) {
@@ -95,7 +95,7 @@ private List<Node<E>> doBFS(Queue<Node<E>> toVisit) {
 
         } while (!toVisit.isEmpty()); // O(N)
 
-        return new ArrayList<>(visited); // O(1)
+        return new ArrayList<>(visited);
     }
 ```
 
@@ -138,7 +138,8 @@ computeClosure loops through the nodes in the graph, giving us O(N), and for eac
 calls on dfs, which we already know has a time complexity of O(N + S). The rest are constants and therefore
 eliminated.
 
-The time complexity for computing closures: O(N) * O(N + S), which is written as O(N(N + S)) or O(N² + NS).
+The time complexity for computing closures: O(N) * O(N + S), which is written as O(N² + NS).
+It could also be seen as O(NS) if S is greater than N.
 
 ---
 
@@ -186,8 +187,10 @@ The algorithm iterates over all nodes in the graph ( O(N) ), performing depth-fi
 on each node ( O(N + S) ), then loops through all the visited nodes and adds the result 
 from dfs ( O(N) ), after that, it loops through the components ( O(C) ) and calls disjoint 
 ( O(C) ), which iterates through the collection and adds the component to the collection 
-if they have no elements in common ( O(C) ). 
+if they have no elements in common ( O(C) ).
 
-O(N + N) --> 
+The time complexity is written as O(N^2 + (N+S) + (C^3)). Although it does not take the nesting into account.
+Each time we call the method, the nested C-loop will be iterated N amount of times. Therefore one could argue
+for a solution of; 
 
-O(N^2 + (N+S) + (C^3))
+N( (N + S) + N + C(C(C)) ) --> O(N² + NS + N² + NC^3). 

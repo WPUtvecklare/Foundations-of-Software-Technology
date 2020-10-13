@@ -1,3 +1,8 @@
+/*
+ * Date: 2020-10-06
+ * File Name: MyConnectedComponents.java
+ * Author: Adam Bergman
+ */
 package ab224qr_assign3.ab224qr;
 
 import ab224qr_assign3.graphs.ConnectedComponents;
@@ -6,6 +11,12 @@ import ab224qr_assign3.graphs.Node;
 
 import java.util.*;
 
+/**
+ * Class Description: An algorithm that computes the
+ * connected components in a graph
+ * @version 1.0
+ * @author Adam Bergman
+ */
 public class MyConnectedComponents<E> implements ConnectedComponents<E> {
 
     /**

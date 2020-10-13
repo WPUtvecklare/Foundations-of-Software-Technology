@@ -1,3 +1,8 @@
+/*
+ * Date: 2020-10-06
+ * File Name: MyGML.java
+ * Author: Adam Bergman
+ */
 package ab224qr_assign3.ab224qr;
 
 import ab224qr_assign3.graphs.DirectedGraph;
@@ -6,6 +11,11 @@ import ab224qr_assign3.graphs.Node;
 
 import java.util.Iterator;
 
+/**
+ * Class Description: Presents a graph in a GML format
+ * @version 1.0
+ * @author Adam Bergman
+ */
 public class MyGML<E> extends GML<E> {
     public MyGML(DirectedGraph<E> dg) {
         super(dg);
